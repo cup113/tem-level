@@ -13,7 +13,7 @@ their original compilers:
   Converted from the original GB18030 export to UTF-8; the build script still
   accepts the original encoding.
 
-They are included so the page and the Docker image stay reproducible. Do not assume
-the data may be reused or redistributed beyond this demonstration: if you fork the
-project, check your own rights to these lists, or replace `sources/` with lists you
-are allowed to publish. The Apache-2.0 grant applies to the code only.
+They are included so the page and the Docker image stay reproducible. Their
+inclusion does not grant any licence to reuse them: the Apache-2.0 grant covers
+the code only. If you fork the project, check your own rights to these lists, or
+replace `sources/` with lists you are allowed to publish.
