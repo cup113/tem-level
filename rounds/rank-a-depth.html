@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>排名单色深浅</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f6f4ee;
+    --surface: #fffdf8;
+    --ink: #1c1d20;
+    --muted: #6d6b62;
+    --line: #e3ddd0;
+    --focus: #2f6f5e;
+    --btn-bg: #23252a;
+    --btn-ink: #f6f4ee;
+    --rank1: #123f63;
+    --rank2: #2f6690;
+    --rank3: #4f7590;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111214; --surface: #191b1e; --ink: #ecece7; --muted: #9a978d;
+      --line: #2a2d31; --focus: #7fc2ab; --btn-bg: #ecece7; --btn-ink: #17181b;
+      --rank1: #b9d7ef; --rank2: #8fb4cf; --rank3: #7f95a5;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 15px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .shell { max-width: 420px; margin: 0 auto; padding: 24px 18px 40px; }
+  .brand strong { font-family: Georgia, "Times New Roman", serif; font-size: 15px; letter-spacing: .04em; }
+
+  .search { display: flex; gap: 8px; margin: 16px 0 18px; }
+  .search input {
+    flex: 1; min-width: 0; height: 44px; padding: 0 14px;
+    border: 1px solid var(--line); border-radius: 10px;
+    background: var(--surface); color: inherit; font: inherit;
+  }
+  .search input:focus { outline: 2px solid var(--focus); outline-offset: 1px; border-color: transparent; }
+  .search button {
+    height: 44px; padding: 0 16px; border: 0; border-radius: 10px;
+    background: var(--btn-bg); color: var(--btn-ink); font: 600 14px/1 inherit;
+  }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    padding: 16px 16px 14px; margin: 0 0 12px;
+  }
+  .head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+  .word { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 26px; line-height: 1.2; font-weight: 600; letter-spacing: -.01em; }
+  .badge { flex: none; margin-top: 3px; padding: 3px 9px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: .03em; }
+  .lv4 { color: #22654b; background: #e2f0e6; }
+  .lv8 { color: #8a5310; background: #f7ecd8; }
+  .lv8p { color: #59459a; background: #ece7f8; }
+  @media (prefers-color-scheme: dark) {
+    .lv4 { color: #9ad6b8; background: #163326; }
+    .lv8 { color: #edc386; background: #382a13; }
+    .lv8p { color: #c3b2f0; background: #2a2340; }
+  }
+
+  .def {
+    margin: 8px 0 0; font-size: 15px; line-height: 1.7;
+    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; overflow: hidden;
+  }
+  .def.empty { color: var(--muted); }
+  .more { margin: 2px 0 0; padding: 0; border: 0; background: none; color: var(--muted); font: 12px/1.6 inherit; }
+  .meta { margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 18px; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .rank { font-weight: 600; }
+  .rank.f1 { color: var(--rank1); }
+  .rank.f2 { color: var(--rank2); }
+  .rank.f3 { color: var(--rank3); }
+
+  .legend { margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 12px; line-height: 1.9; color: var(--muted); }
+</style>
+</head>
+<body>
+<main class="shell">
+  <header class="brand"><strong>TEM 词级查询</strong></header>
+
+  <form class="search" onsubmit="return false">
+    <input value="hand" aria-label="输入单词" autocomplete="off" spellcheck="false">
+    <button type="button">查询</button>
+  </form>
+
+  <section aria-live="polite">
+    <article class="card">
+      <div class="head"><h2 class="word">hand</h2><span class="badge lv4">TEM4</span></div>
+      <p class="def">n. 1. 手，人手，雇员 2. 钟表的指针 3. 能手，高手 4. 插手，经手 5. 方面 6. 帮助 7. 笔迹，手迹 8. 手艺 || at hand即将来到，近在手边，在附近 [by hand用手(工)，手写的，有专人递送(非邮寄)] change hands转手，易手 [get out of hand难控制，无法约束] get one's hand in; keep one's hand in经常练习，保持熟练 [give a (helping) hand; lend a (helping) hand给予帮助]</p>
+      <button class="more" type="button">展开</button>
+      <p class="meta"><span>COCA 排名 <b class="rank f1">174</b></span><span>出现 242,773 次</span></p>
+    </article>
+
+    <article class="card">
+      <div class="head"><h2 class="word">abandon</h2><span class="badge lv4">TEM4</span></div>
+      <p class="def">v. 1. 抛弃，放弃 2. 离弃(家园、船只、飞机等) 3. 遗弃(妻、子女等)</p>
+      <p class="meta"><span>COCA 排名 <b class="rank f1">2,195</b></span><span>出现 16,540 次</span></p>
+    </article>
+
+    <article class="card">
+      <div class="head"><h2 class="word">algorithm</h2><span class="badge lv8p">TEM8+</span></div>
+      <p class="def empty">考纲未收，无释义</p>
+      <p class="meta"><span>COCA 排名 <b class="rank f2">8,382</b></span><span>出现 2,841 次</span></p>
+    </article>
+
+    <article class="card">
+      <div class="head"><h2 class="word">serendipity</h2><span class="badge lv8p">TEM8+</span></div>
+      <p class="def empty">考纲未收，无释义</p>
+      <p class="meta"><span>COCA 排名 <b class="rank f3">24,935</b></span><span>出现 465 次</span></p>
+    </article>
+  </section>
+
+  <p class="legend">TEM4 四级基础词，TEM8 八级独有词。<br>TEM8+ 不在考纲内。</p>
+</main>
+</body>
+</html>

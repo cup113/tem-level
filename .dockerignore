@@ -1,0 +1,9 @@
+.git
+.gitignore
+.github
+data
+node_modules
+rounds
+*.md
+Dockerfile
+.dockerignore

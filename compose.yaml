@@ -1,0 +1,7 @@
+services:
+  tem-level:
+    image: ghcr.io/cup113/tem-level:latest
+    container_name: tem-level
+    ports:
+      - "8080:80"
+    restart: unless-stopped

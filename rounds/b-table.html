@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>词级查询 · 列表</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f6f4ee;
+    --surface: #fffdf8;
+    --ink: #1c1d20;
+    --muted: #6d6b62;
+    --line: #e3ddd0;
+    --focus: #2f6f5e;
+    --btn-bg: #23252a;
+    --btn-ink: #f6f4ee;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111214;
+      --surface: #191b1e;
+      --ink: #ecece7;
+      --muted: #9a978d;
+      --line: #2a2d31;
+      --focus: #7fc2ab;
+      --btn-bg: #ecece7;
+      --btn-ink: #17181b;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 15px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .shell { max-width: 420px; margin: 0 auto; padding: 24px 18px 40px; }
+  .brand { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+  .brand strong { font-family: Georgia, "Times New Roman", serif; font-size: 15px; letter-spacing: .04em; }
+  .brand span { color: var(--muted); font-size: 12px; }
+
+  .search { display: flex; gap: 8px; margin: 16px 0 18px; }
+  .search input {
+    flex: 1; min-width: 0; height: 44px; padding: 0 14px;
+    border: 1px solid var(--line); border-radius: 10px;
+    background: var(--surface); color: inherit; font: inherit;
+  }
+  .search input::placeholder { color: var(--muted); }
+  .search input:focus { outline: 2px solid var(--focus); outline-offset: 1px; border-color: transparent; }
+  .search button {
+    height: 44px; padding: 0 16px; border: 0; border-radius: 10px;
+    background: var(--btn-bg); color: var(--btn-ink); font: 600 14px/1 inherit;
+  }
+
+  .table { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .thead, .row {
+    display: grid;
+    grid-template-columns: 1fr 62px minmax(0, 1.05fr) 56px;
+    gap: 8px;
+    align-items: center;
+    padding: 0 12px;
+  }
+  .thead {
+    height: 30px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    color: var(--muted);
+    border-bottom: 1px solid var(--line);
+  }
+  .row { min-height: 46px; border-bottom: 1px solid var(--line); }
+  .row:last-child { border-bottom: 0; }
+  .w { font-family: Georgia, "Times New Roman", serif; font-size: 15px; letter-spacing: -.01em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .badge { justify-self: start; padding: 2px 7px; border-radius: 999px; font-size: 10px; font-weight: 700; letter-spacing: .03em; }
+  .lv4 { color: #22654b; background: #e2f0e6; }
+  .lv8 { color: #8a5310; background: #f7ecd8; }
+  .lv8p { color: #59459a; background: #ece7f8; }
+  @media (prefers-color-scheme: dark) {
+    .lv4 { color: #9ad6b8; background: #163326; }
+    .lv8 { color: #edc386; background: #382a13; }
+    .lv8p { color: #c3b2f0; background: #2a2340; }
+  }
+  .d { font-size: 12px; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .d.empty { color: var(--muted); }
+  .n { font-size: 12px; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+
+  .legend { margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 12px; line-height: 1.9; color: var(--muted); }
+</style>
+</head>
+<body>
+<main class="shell">
+  <header class="brand">
+    <strong>TEM 词级查询</strong>
+  </header>
+
+  <form class="search" onsubmit="return false">
+    <input value="abandon" aria-label="输入单词" autocomplete="off" spellcheck="false">
+    <button type="button">查询</button>
+  </form>
+
+  <section class="table" aria-live="polite">
+    <div class="thead"><span>词</span><span>考纲</span><span>释义</span><span style="text-align:right">排名</span></div>
+    <div class="row">
+      <span class="w">abandon</span>
+      <span class="badge lv4">TEM4</span>
+      <span class="d">v. 1. 抛弃，放弃 2. 离弃(家园、船只、飞机等)</span>
+      <span class="n">2,195</span>
+    </div>
+    <div class="row">
+      <span class="w">abacus</span>
+      <span class="badge lv8">TEM8</span>
+      <span class="d">n. 算盘</span>
+      <span class="n">34,578</span>
+    </div>
+    <div class="row">
+      <span class="w">serendipity</span>
+      <span class="badge lv8p">TEM8+</span>
+      <span class="d empty">考纲未收</span>
+      <span class="n">24,935</span>
+    </div>
+  </section>
+
+  <p class="legend">TEM4 四级基础词，TEM8 八级独有词，TEM8+ 不在考纲内。</p>
+</main>
+</body>
+</html>

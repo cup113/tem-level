@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TEM 词级查询</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="shell">
+  <header class="brand">
+    <strong>TEM 词级查询</strong>
+  </header>
+
+  <form class="search" id="search" role="search">
+    <label class="sr-only" for="word">单词</label>
+    <input id="word" name="word" type="text" placeholder="输入单词，如 abandon"
+           autocomplete="off" autocapitalize="off" spellcheck="false" autofocus>
+    <button type="submit">查询</button>
+  </form>
+
+  <p id="notice" class="notice" role="status" hidden></p>
+
+  <section id="results" aria-live="polite" aria-label="查询结果"></section>
+
+  <div class="empty-state" id="empty">
+    <p>输入一个英文单词，查看考纲级别、释义与词频。</p>
+    <div class="chips">
+      <button type="button" class="chip" data-word="abandon">abandon</button>
+      <button type="button" class="chip" data-word="abacus">abacus</button>
+      <button type="button" class="chip" data-word="serendipity">serendipity</button>
+    </div>
+  </div>
+
+  <p class="legend">TEM4 四级基础词，TEM8 八级独有词。<br>TEM8+ 不在考纲内。</p>
+</main>
+
+<script src="data/lexicon.js"></script>
+<script src="lib/lookup.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

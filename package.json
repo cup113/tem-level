@@ -1,0 +1,20 @@
+{
+  "name": "tem-level",
+  "version": "0.1.0",
+  "description": "Word in, TEM4/TEM8/TEM8+ level + definition + COCA rank out. Static page, Docker image.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "homepage": "https://github.com/cup113/tem-level",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cup113/tem-level.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cup113/tem-level/issues"
+  },
+  "scripts": {
+    "build": "node scripts/build-data.mjs",
+    "verify": "node scripts/verify.mjs",
+    "check": "node scripts/build-data.mjs && node scripts/verify.mjs"
+  }
+}
