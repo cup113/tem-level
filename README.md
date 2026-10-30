@@ -6,6 +6,8 @@
 ![docker](https://github.com/cup113/tem-level/actions/workflows/docker.yml/badge.svg)
 ![GHCR](https://img.shields.io/badge/ghcr.io-cup113%2Ftem--level-2496ed)
 
+<p align="center"><img src="docs/preview.png" width="360" alt="查询 abandon、abacus、serendipity 的结果"></p>
+
 ## 用 Docker 部署
 
 ```bash
